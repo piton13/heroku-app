@@ -8,14 +8,14 @@ import { ListService } from '../list.service';
 })
 export class ListComponent implements OnInit {
 
-  public list = [{id: 0, name: 'some name'}];
+  public list = [{ id: 0, name: 'some name' }];
 
-  constructor(public listService: ListService) { }
+  constructor(public listService: ListService) {
+  }
 
   ngOnInit() {
     this.listService.getItems().subscribe(list => {
-      console.log(list);
-      //       this.list = list;
+      this.list = list;
     });
   }
 

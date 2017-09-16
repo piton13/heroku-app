@@ -1,23 +1,18 @@
-// import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-// @Injectable()
+@Injectable()
 export class ListService {
 
-  constructor(private http: Http) {  }
+  constructor(private http: Http) {}
 
-  getItems() {
-    return this.http.get('/api/list', {headers: this.getHeaders()})
-      .map(res => {
-        return res.json();
+  getItems(): Observable<any> {
+    return this.http.get('/api/list')
+      .map(response => {
+        return response.json();
       });
-  }
-
-  private getHeaders() {
-    const headers = new Headers();
-    headers.append('Accept', 'application/json');
-    return headers;
   }
 
 }
