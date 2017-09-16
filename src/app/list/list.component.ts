@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListService } from '../list.service';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  public list = [{id: 0, name: 'some name'}];
+
+  constructor(public listService: ListService) { }
 
   ngOnInit() {
+    this.listService.getItems().subscribe(list => {
+      console.log(list);
+      //       this.list = list;
+    });
   }
 
 }
