@@ -5,18 +5,26 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "ng build && npm run dev",
+    "preinstall": "npm install -g angular-cli@latest",
+    "prestart": "ng build",
+    "start": "npm run dev",
     "dev": "node server.js",
+    "deploy": "git push -f heroku master",
     "serve": "ng serve",
     "test": "ng test",
     "pree2e": "webdriver-manager update --standalone false --gecko false",
     "e2e": "protractor"
+  },
+  "engines": {
+    "node": "8.1.4",
+    "npm": "5.0.3"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^4.4.1",
     "@angular/common": "^4.4.1",
     "@angular/compiler": "^4.4.1",
+    "@angular/compiler-cli": "^4.4.1",
     "@angular/core": "^4.4.1",
     "@angular/forms": "^4.4.1",
     "@angular/http": "^4.4.1",
@@ -24,6 +32,7 @@
     "@angular/platform-browser-dynamic": "^4.4.1",
     "@angular/platform-server": "^4.4.1",
     "@angular/router": "^4.4.1",
+    "@types/node": "^6.0.42",
     "body-parser": "^1.18.1",
     "bootstrap": "^4.0.0-beta",
     "core-js": "^2.4.1",
@@ -33,9 +42,7 @@
     "zone.js": "^0.7.2"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "^4.4.1",
     "@types/jasmine": "2.5.38",
-    "@types/node": "^6.0.42",
     "angular-cli": "1.0.0-beta.28.3",
     "codelyzer": "~2.0.0-beta.1",
     "jasmine-core": "2.5.2",
